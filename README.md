@@ -8,3 +8,7 @@
 ## Jak wejść na stronę administracyjną?
 - dodaj superusera ```uv run manage.py addsuperuser ``` albo ```python -m manage.py addsuperuser ```
 - uruchom serwer i wejdź na ``` /admin ```
+
+## Poradniki:
+- https://www.youtube.com/playlist?list=PL0Zuz27SZ-6NamGNr7dEqzNFEcZ_FAUVX
+- https://docs.djangoproject.com/en/6.1/intro/tutorial01/
