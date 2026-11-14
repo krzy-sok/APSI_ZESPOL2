@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}Usuń urządzenie — Rejestr zasobów{% endblock %}
+
+{% block content %}
+<h1>Usuń urządzenie „{{ device.name }}”</h1>
+<p>Czy na pewno chcesz usunąć to urządzenie?</p>
+<p>Jego komponenty pozostaną w rejestrze jako osobne urządzenia.</p>
+{% if parent_devices %}
+    <p>Urządzenie zostanie odłączone od:</p>
+    <ul>
+        {% for parent in parent_devices %}
+            <li>{{ parent.name }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<p>Powiązane wpisy, które również zostaną usunięte:</p>
+<ul>
+    {% for label, count in related_records.items %}
+        <li>{{ label }}: {{ count }}</li>
+    {% endfor %}
+</ul>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Potwierdź usunięcie</button>
+</form>
+<p><a href="{% url 'device_detail' device.pk %}">Anuluj</a></p>
+{% endblock %}

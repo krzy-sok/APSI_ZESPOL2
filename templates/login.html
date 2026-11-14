@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}Logowanie — Rejestr zasobów{% endblock %}
+
+{% block content %}
+<h1>Zaloguj się</h1>
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit">Zaloguj się</button>
+</form>
+{% endblock %}

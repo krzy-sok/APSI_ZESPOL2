@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class InventorymanagerConfig(AppConfig):
-    name = 'InventoryManager'
+    name = "InventoryManager"

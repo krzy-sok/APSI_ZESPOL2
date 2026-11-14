@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ title }} — Rejestr zasobów{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Zapisz</button>
+</form>
+<p><a href="{% url 'category_list' %}">Anuluj i wróć do listy</a></p>
+{% endblock %}

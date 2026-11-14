@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block title %}Kategorie — Rejestr zasobów{% endblock %}
+
+{% block content %}
+<h1>Kategorie</h1>
+<p><a href="{% url 'category_create' %}">Dodaj kategorię</a></p>
+<form action="{% url 'category_list' %}" method="get" role="search" aria-label="Wyszukiwanie i filtrowanie kategorii">
+    {{ filter_form.as_p }}
+    <button type="submit">Zastosuj</button>
+    <a href="{% url 'category_list' %}">Wyczyść filtry</a>
+</form>
+<p>Liczba wyników: {{ page_obj.paginator.count }}</p>
+{% if categories %}
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Nazwa</th>
+                <th scope="col">Dozwolone kategorie komponentów</th>
+                <th scope="col">Operacje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.name }}</td>
+                    <td>
+                        {% for component_category in category.allowed_sub_components.all %}
+                            {{ component_category.name }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                            Brak
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="{% url 'category_update' category.pk %}">Edytuj</a>
+                        <a href="{% url 'category_delete' category.pk %}">Usuń</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    {% if filters_active or filter_form.errors %}
+        <p>Brak kategorii pasujących do podanych kryteriów.</p>
+    {% else %}
+        <p>Nie dodano jeszcze żadnych kategorii.</p>
+    {% endif %}
+{% endif %}
+{% include 'includes/pagination.html' %}
+{% endblock %}
