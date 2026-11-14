@@ -1,0 +1,16 @@
+{% comment %} {% extends 'layout.html' %} {% endcomment %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block content %}
+<h1>
+Register new user
+</h1>
+<form  action='/user/register/' method='post'>
+    {% csrf_token %}
+    {{form}}
+    <button>Submit</button>
+</form>
+{% endblock %}
