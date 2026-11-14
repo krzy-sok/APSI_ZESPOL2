@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}Usuń kategorię — Rejestr zasobów{% endblock %}
+
+{% block content %}
+<h1>Usuń kategorię „{{ category.name }}”</h1>
+{% if in_use %}
+    <p>Nie można usunąć kategorii przypisanej do urządzeń lub parametrów. Najpierw zmień ich kategorię.</p>
+{% else %}
+    <p>Czy na pewno chcesz usunąć tę kategorię?</p>
+    {% if parent_categories %}
+        <p>Kategoria zostanie również usunięta z list dozwolonych komponentów następujących kategorii:</p>
+        <ul>
+            {% for parent in parent_categories %}
+                <li>{{ parent.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Potwierdź usunięcie</button>
+    </form>
+{% endif %}
+<p><a href="{% url 'category_list' %}">Wróć do listy</a></p>
+{% endblock %}

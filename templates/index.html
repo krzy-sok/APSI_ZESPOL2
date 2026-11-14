@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Rejestr zasobów</h1>
+<p>Witaj, {{ user.username }}.</p>
+{% if user.is_staff %}
+    <p><a href="{% url 'admin:index' %}">Panel administracyjny</a></p>
+{% endif %}
+{% endblock %}

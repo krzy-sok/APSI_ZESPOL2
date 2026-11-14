@@ -101,6 +101,9 @@ ENV/
 # mypy
 .mypy_cache/
 
+# Ruff
+.ruff_cache/
+
 .DS_Store
 *.sqlite3
 media/

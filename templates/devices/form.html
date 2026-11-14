@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ title }} — Rejestr zasobów{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p>Brakuje kategorii? <a href="{% url 'category_create' %}">Dodaj kategorię</a> przed wypełnieniem formularza.</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Zapisz</button>
+</form>
+<p><a href="{% url 'device_list' %}">Anuluj i wróć do listy</a></p>
+{% endblock %}

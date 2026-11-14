@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ device.name }} — Rejestr zasobów{% endblock %}
+
+{% block content %}
+<h1>{{ device.name }}</h1>
+<p>Kategoria: {{ device.category.name }}</p>
+<p>
+    <a href="{% url 'device_update' device.pk %}">Edytuj</a>
+    <a href="{% url 'device_delete' device.pk %}">Usuń</a>
+</p>
+<h2>Komponenty</h2>
+<ul>
+    {% for component in components %}
+        <li><a href="{% url 'device_detail' component.pk %}">{{ component.name }}</a> — {{ component.category.name }}</li>
+    {% empty %}
+        <li>Brak komponentów. Możesz je dołączyć podczas edycji urządzenia.</li>
+    {% endfor %}
+</ul>
+<h2>Urządzenia zawierające ten komponent</h2>
+<ul>
+    {% for parent in parent_devices %}
+        <li><a href="{% url 'device_detail' parent.pk %}">{{ parent.name }}</a></li>
+    {% empty %}
+        <li>To urządzenie nie jest komponentem innego urządzenia.</li>
+    {% endfor %}
+</ul>
+<p><a href="{% url 'device_list' %}">Wróć do listy urządzeń</a></p>
+{% endblock %}

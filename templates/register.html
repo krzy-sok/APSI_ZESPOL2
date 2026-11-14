@@ -1,16 +1,13 @@
-{% comment %} {% extends 'layout.html' %} {% endcomment %}
+{% extends 'layout.html' %}
 
-{% block title %}
-    Register
-{% endblock %}
+{% block title %}Rejestracja — Rejestr zasobów{% endblock %}
 
 {% block content %}
-<h1>
-Register new user
-</h1>
-<form  action='/user/register/' method='post'>
+<h1>Utwórz konto</h1>
+<form action="{% url 'register' %}" method="post">
     {% csrf_token %}
-    {{form}}
-    <button>Submit</button>
+    {{ form.as_p }}
+    <button type="submit">Utwórz konto</button>
 </form>
+<p>Po utworzeniu konta zaloguj się, aby przejść do aplikacji.</p>
 {% endblock %}
