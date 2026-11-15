@@ -1,0 +1,145 @@
+<mxfile host="65bd71144e">
+    <diagram id="arch" name="Architektura aplikacji">
+        <mxGraphModel dx="573" dy="407" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1550" pageHeight="960" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=18;" value="&lt;b&gt;Inventory Manager: architektura aplikacji&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="30" width="700" x="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="browser" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Przeglądarka&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="50" width="180" x="340" y="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="envfile" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;b&gt;.env&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="50" width="160" x="350" y="880" as="geometry"/>
+                </mxCell>
+                <mxCell id="django" parent="1" style="swimlane;html=1;startSize=28;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;" value="&lt;b&gt;Aplikacja Django&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="690" width="1140" x="20" y="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe" parent="django" style="swimlane;html=1;startSize=28;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;Frontend&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="630" width="260" x="20" y="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="tpages" parent="fe" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Szablony stron" vertex="1">
+                    <mxGeometry height="50" width="220" x="20" y="305" as="geometry"/>
+                </mxCell>
+                <mxCell id="tpag" parent="fe" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Paginacja" vertex="1">
+                    <mxGeometry height="50" width="90" x="30" y="395" as="geometry"/>
+                </mxCell>
+                <mxCell id="tbase" parent="fe" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Szablon bazowy" vertex="1">
+                    <mxGeometry height="50" width="90" x="140" y="395" as="geometry"/>
+                </mxCell>
+                <mxCell id="be" parent="django" style="swimlane;html=1;startSize=28;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;Backend&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="630" width="440" x="300" y="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="mw" parent="be" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Middleware&lt;br&gt;(security, sesje, CSRF, auth, messages)" vertex="1">
+                    <mxGeometry height="70" width="180" x="20" y="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="auth" parent="be" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Uwierzytelnianie i sesje" vertex="1">
+                    <mxGeometry height="50" width="180" x="240" y="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="urls" parent="be" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Routing" vertex="1">
+                    <mxGeometry height="50" width="180" x="20" y="215" as="geometry"/>
+                </mxCell>
+                <mxCell id="admin" parent="be" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Panel administracyjny" vertex="1">
+                    <mxGeometry height="50" width="180" x="240" y="215" as="geometry"/>
+                </mxCell>
+                <mxCell id="views" parent="be" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Widoki Klas" vertex="1">
+                    <mxGeometry height="50" width="180" x="20" y="305" as="geometry"/>
+                </mxCell>
+                <mxCell id="forms" parent="be" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Formularze i walidacja" vertex="1">
+                    <mxGeometry height="50" width="180" x="20" y="405" as="geometry"/>
+                </mxCell>
+                <mxCell id="settings" parent="be" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Konfiguracja (settings.py)" vertex="1">
+                    <mxGeometry height="70" width="180" x="20" y="505" as="geometry"/>
+                </mxCell>
+                <mxCell id="authviews" parent="be" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Widoki Autoryzacji" vertex="1">
+                    <mxGeometry height="50" width="180" x="240" y="132" as="geometry"/>
+                </mxCell>
+                <mxCell id="dl" parent="django" style="swimlane;html=1;startSize=28;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;b&gt;Baza danych&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="630" width="300" x="820" y="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="models" parent="dl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="&lt;b&gt;Modele i ORM&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="460" width="220" x="40" y="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="migr" parent="dl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Migracje" vertex="1">
+                    <mxGeometry height="50" width="220" x="40" y="540" as="geometry"/>
+                </mxCell>
+                <mxCell id="e20" edge="1" parent="1" source="urls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="authviews" value="login / logout / register">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e21" edge="1" parent="1" source="authviews" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;dashed=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" target="auth" value="sesje / użytkownicy">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="docker" parent="1" style="swimlane;html=1;startSize=30;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;" value="&lt;b&gt;Docker Compose&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="150" width="250" x="1220" y="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="db" parent="docker" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;PostgreSQL&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="90" width="130" x="60" y="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" edge="1" parent="1" source="browser" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=0.25;exitY=1;entryX=0.25;entryY=0;" target="mw" value="żądanie HTTP">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" edge="1" parent="1" source="mw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=0.75;exitY=0;entryX=0.75;entryY=1;" target="browser" value="odpowiedź HTML">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2b" edge="1" parent="1" source="tpages" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0;entryY=0.5;" target="mw" value="renderuje odpowiedź">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" edge="1" parent="1" source="mw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="urls" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4" edge="1" parent="1" source="mw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="auth" value="sesje">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e5" edge="1" parent="1" source="urls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="views" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6" edge="1" parent="1" source="urls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="admin" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e7" edge="1" parent="1" source="views" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="forms" value="walidacja">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e8" edge="1" parent="1" source="views" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="tpages" value="render">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e10" edge="1" parent="1" source="tpages" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=0.25;exitY=1;entryX=0.5;entryY=0;exitDx=0;exitDy=0;" target="tpag" value="zawiera">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e9" edge="1" parent="1" source="tpages" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=0.75;exitY=1;entryX=0.5;entryY=0;exitDx=0;exitDy=0;" target="tbase" value="dziedziczenie">
+                    <mxGeometry relative="1" x="0.0222" as="geometry"/>
+                </mxCell>
+                <mxCell id="e11" edge="1" parent="1" source="auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.056;" target="models" value="użytkownicy, sesje">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e12" edge="1" parent="1" source="admin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=-0.013;entryY=0.417;entryDx=0;entryDy=0;entryPerimeter=0;" target="models" value="zarządzanie danymi">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e13" edge="1" parent="1" source="views" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.612;entryDx=0;entryDy=0;entryPerimeter=0;" target="models" value="zapytania">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e14" edge="1" parent="1" source="forms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.823;entryDx=0;entryDy=0;entryPerimeter=0;" target="models" value="pola modeli">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e15" edge="1" parent="1" source="settings" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.944;dashed=1;" target="models" value="ORM">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e16" edge="1" parent="1" source="models" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="migr" value="schemat">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e17" edge="1" parent="1" source="models" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=classic;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="db" value="SQL">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e17b" edge="1" parent="1" source="migr" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=1;" target="db" value="migrate">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e18" edge="1" parent="1" source="envfile" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=1;" target="settings" value="zmienne środowiskowe">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e19" edge="1" parent="1" source="envfile" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.9;entryY=1;dashed=1;" target="docker" value="env_file">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
