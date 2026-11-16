@@ -1,12 +1,340 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{% block title %}Rejestr zasobów{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #6750a4;
+            --primary-hover: #57418f;
+            --on-primary: #ffffff;
+
+            --background: #f7f5fa;
+            --surface: #ffffff;
+            --surface-variant: #ece6f0;
+
+            --text: #1d1b20;
+            --text-secondary: #625d67;
+
+            --border: #cac4d0;
+            --danger: #b3261e;
+
+            --radius-small: 8px;
+            --radius-medium: 12px;
+            --radius-large: 20px;
+
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Navigation */
+
+        .topbar {
+            background: var(--primary);
+            color: var(--on-primary);
+            padding: 0 32px;
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow);
+        }
+
+        .brand {
+            font-size: 21px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 24px;
+            transition: background 0.2s;
+        }
+
+        .navigation a:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Main content */
+
+        .container {
+            width: min(100% - 32px, 1100px);
+            margin: 40px auto;
+        }
+
+        .page-header {
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 500;
+            margin: 0 0 16px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 500;
+            margin: 28px 0 16px;
+        }
+
+        p {
+            color: var(--text-secondary);
+        }
+
+        /* Cards */
+
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius-large);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        /* Forms */
+
+        form {
+            background: var(--surface);
+            border-radius: var(--radius-large);
+            padding: 28px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+        }
+
+        form p {
+            margin: 0 0 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        input:not([type="checkbox"]):not([type="radio"]),
+        select,
+        textarea {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-small);
+            background: var(--surface);
+            color: var(--text);
+            font: inherit;
+            outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 0 2px rgba(103, 80, 164, 0.12);
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            accent-color: var(--primary);
+        }
+
+        .helptext {
+            display: block;
+            margin-top: 6px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .errorlist {
+            color: var(--danger);
+            font-size: 14px;
+            padding-left: 20px;
+        }
+
+        /* Buttons */
+
+        button,
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 24px;
+            background: var(--primary);
+            color: white;
+            font: inherit;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover,
+        .btn:hover {
+            background: var(--primary-hover);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--surface-variant);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: #ded7e5;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+        }
+
+        .btn-danger:hover {
+            background: #8c1d18;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        /* Lists */
+
+        ul {
+            padding-left: 24px;
+        }
+
+        li {
+            padding: 8px 0;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Django messages */
+
+        .messages {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 24px;
+        }
+
+        .messages li {
+            padding: 14px 18px;
+            border-radius: var(--radius-medium);
+            background: var(--surface-variant);
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .messages .success {
+            background: #e2f3e5;
+            color: #185c2b;
+        }
+
+        .messages .error {
+            background: #f9dedc;
+            color: #8c1d18;
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 13px;
+            padding: 24px;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 600px) {
+            .topbar {
+                padding: 16px;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .navigation {
+                flex-wrap: wrap;
+            }
+
+            .navigation a {
+                padding: 8px 12px;
+            }
+
+            .container {
+                margin: 24px auto;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            form,
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+
+    {% block extra_head %}{% endblock %}
 </head>
+
 <body>
-    <nav aria-label="Nawigacja główna">
+
+<header class="topbar">
+    <a href="{% url 'device_list' %}" class="brand">
+        Rejestr zasobów
+    </a>
+
+    <nav class="navigation">
         <a href="{% url 'home' %}">Rejestr zasobów</a>
         {% if user.is_authenticated %}
             <a href="{% url 'category_list' %}">Kategorie</a>
@@ -21,15 +349,28 @@
             <a href="{% url 'register' %}">Utwórz konto</a>
         {% endif %}
     </nav>
-    <main>
-        {% if messages %}
-            <ul aria-label="Komunikaty">
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        {% block content %}{% endblock %}
-    </main>
+</header>
+
+<main class="container">
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">
+                    {{ message }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+<footer>
+    Rejestr zasobów &copy; {% now "Y" %}
+</footer>
+
 </body>
 </html>
